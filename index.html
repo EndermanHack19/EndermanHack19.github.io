@@ -3,168 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой профиль</title>
+    <title>EndermanHack19 - Профиль</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
         body {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        nav {
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        
-        .profile-card {
-            background: rgba(255, 255, 255, 0.9);
-            width: 100%;
-            max-width: 400px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .profile-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .cover {
-            height: 120px;
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-        }
-        
-        .profile-info {
-            padding: 0 20px 20px;
-        }
-        
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid white;
-            margin-top: -60px;
-            object-fit: cover;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            margin: 10px 0 5px;
-            color: #333;
-        }
-        
-        .username {
-            color: #777;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        
-        .bio {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-        
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 25px;
-        }
-        
-        .stat {
+            background-color: #222;
             padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
-        .stat h2 {
-            color: #4facfe;
-            margin-bottom: 5px;
-        }
-        
-        .stat p {
-            color: #777;
-            font-size: 14px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: white;
+        nav a {
+            color: #fff;
             text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s;
-            margin: 5px;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s;
         }
-        
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        nav a:hover {
+            color: #00e5ff;
         }
-        
-        .social-links {
-            margin-top: 20px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-top: 1px solid #eee;
+        section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-        
-        .social-links a {
+        h2 {
+            margin-bottom: 20px;
+            color: #00e5ff;
+            border-bottom: 2px solid #00e5ff;
             display: inline-block;
-            margin: 0 10px;
-            color: #4facfe;
-            font-size: 20px;
-            transition: transform 0.3s;
         }
-        
-        .social-links a:hover {
-            transform: translateY(-3px);
-            color: #a777e3;
+        ul {
+            list-style: none;
+        }
+        ul li {
+            margin-bottom: 15px;
+        }
+        a {
+            color: #00e5ff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #ffffff;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #1a1a1a;
+            margin-top: 50px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 5px 0;
+            }
+            section {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <div class="profile-card">
-        <div class="cover"></div>
-        <div class="profile-info">
-            <img src="https://images-ext-1.discordapp.net/external/fMRrH1ApNQe-LmwRfyiNrgiZuPXZGDEOPbGtg0ZZlyg/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/425583484619456512/2287c0402a0beab49bb7fc548ab0b498.png?format=webp&quality=lossless&width=320&height=320" alt="Profile" class="profile-img">
-            <h1>Алексей Иванов</h1>
-            <p class="username">@aleksey_webdev</p>
-            <p class="bio">Веб-разработчик | UI/UX дизайнер | Люблю создавать красивые и функциональные интерфейсы. Работаю с HTML, CSS, JavaScript и React.</p>
-            
-            <div class="stats">
-                <div class="stat">
-                    <h2>124</h2>
-                    <p>Проекты</p>
-                </div>
-                <div class="stat">
-                    <h2>5.8K</h2>
-                    <p>Подписчики</p>
-                </div>
-                <div class="stat">
-                    <h2>86</h2>
-                    <p>Подписки</p>
-                </div>
-            </div>
-            
-            <a href="#" class="btn">Написать сообщение</a>
-            <a href="#" class="btn" style="background:linear-gradient(45deg, #a777e3, #6e8efb)">Подписаться</a>
-        </div>
-        
-        <div class="social-links">
-            <a href="#"><i>📱</i></a>
-            <a href="#"><i>📘</i></a>
-            <a href="#"><i>🐦</i></a>
-            <a href="#"><i>📸</i></a>
-            <a href="#"><i>💼</i></a>
-        </div>
-    </div>
+
+<header>
+    <h1>👾 EndermanHack19</h1>
+    <p>Добро пожаловать на мой личный сайт!</p>
+</header>
+
+<nav>
+    <a href="#profile">Профиль</a>
+    <a href="#social">Соц. сети</a>
+    <a href="#projects">Мои проекты</a>
+</nav>
+
+<!-- Профиль -->
+<section id="profile">
+    <h2>👤 Профиль</h2>
+    <p>Привет! Меня зовут <strong>EndermanHack19</strong>. Я занимаюсь веб-разработкой, программированием и созданием интересных проектов. Люблю изучать новые технологии и делиться знаниями с другими.</p>
+</section>
+
+<!-- Социальные сети -->
+<section id="social">
+    <h2>🔗 Ссылки на соц. сети</h2>
+    <ul>
+        <li>🌐 <a href="https://github.com/" target="_blank">GitHub</a></li>
+        <li>📘 <a href="https://vk.com/" target="_blank">ВКонтакте</a></li>
+        <li>📨 <a href="https://t.me/" target="_blank">Telegram</a></li>
+        <li>🎮 <a href="https://discord.com/" target="_blank">Discord</a></li>
+    </ul>
+</section>
+
+<!-- Мои проекты -->
+<section id="projects">
+    <h2>🚀 Мои проекты</h2>
+    <ul>
+        <li>📌 <strong><a href="#">Проект 1</a></strong> — краткое описание проекта.</li>
+        <li>📌 <strong><a href="#">Проект 2</a></strong> — краткое описание проекта.</li>
+        <li>📌 <strong><a href="#">Проект 3</a></strong> — краткое описание проекта.</li>
+    </ul>
+</section>
+
+<footer>
+    &copy; 2025 EndermanHack19. Все права защищены.
+</footer>
+
 </body>
 </html>
