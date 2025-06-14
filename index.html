@@ -4,139 +4,651 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EndermanHack19 - Профиль</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #0f0f0f;
-            color: #ffffff;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
-        header {
-            background-color: #1a1a1a;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #222;
-            padding: 10px;
-            position: sticky;
+
+        /* Анимированный фон */
+        body::before {
+            content: '';
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -1;
         }
-        nav a {
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Навигация */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
         }
-        nav a:hover {
-            color: #00e5ff;
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            transition: width 0.3s ease;
         }
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: #1a1a1a;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
-        h2 {
+
+        /* Мобильное меню */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* Основной контент */
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 20px;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Страница профиля */
+        .profile-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            padding: 5px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #222;
+        }
+
+        .profile-name {
+            font-size: 48px;
             margin-bottom: 20px;
-            color: #00e5ff;
-            border-bottom: 2px solid #00e5ff;
-            display: inline-block;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        ul {
-            list-style: none;
+
+        .profile-bio {
+            font-size: 18px;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
-        ul li {
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        /* Страница соц. сетей */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .social-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .social-username {
+            color: #999;
+            font-size: 16px;
+        }
+
+        /* Страница проектов */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-title {
+            font-size: 24px;
             margin-bottom: 15px;
         }
-        a {
-            color: #00e5ff;
-            text-decoration: none;
-            transition: color 0.3s;
+
+        .project-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
-        a:hover {
-            color: #ffffff;
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
-        footer {
+
+        .tag {
+            background: rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Заголовки страниц */
+        .page-title {
             text-align: center;
-            padding: 15px;
-            background-color: #1a1a1a;
-            margin-top: 50px;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.3);
+            font-size: 42px;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        @media (max-width: 600px) {
-            nav {
+
+        .page-subtitle {
+            text-align: center;
+            color: #ccc;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
                 flex-direction: column;
-            }
-            nav a {
-                margin: 5px 0;
-            }
-            section {
-                margin: 20px;
                 padding: 20px;
+                gap: 20px;
+            }
+
+            .profile-name {
+                font-size: 36px;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .stat-card {
+                padding: 20px 30px;
+            }
+
+            .projects-grid,
+            .social-grid {
+                grid-template-columns: 1fr;
             }
         }
-        html {
-            scroll-behavior: smooth;
+
+        /* Частицы фона */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) translateX(100px);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Частицы фона -->
+    <div class="particles" id="particles"></div>
 
-<header>
-    <h1>👾 EndermanHack19</h1>
-    <p>Добро пожаловать на мой личный сайт!</p>
-</header>
+    <!-- Навигация -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">EndermanHack19</div>
+            <div class="nav-links" id="navLinks">
+                <a class="active" onclick="showPage('profile')">Профиль</a>
+                <a onclick="showPage('social')">Соц. сети</a>
+                <a onclick="showPage('projects')">Проекты</a>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-<nav>
-    <a href="#profile">Профиль</a>
-    <a href="#social">Соц. сети</a>
-    <a href="#projects">Мои проекты</a>
-</nav>
+    <!-- Основной контент -->
+    <div class="container">
+        <!-- Страница профиля -->
+        <div id="profile" class="page active">
+            <div class="profile-section">
+                <div class="avatar">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%2300ff88' font-size='60' font-family='Arial'%3EEH%3C/text%3E%3C/svg%3E" alt="Avatar">
+                </div>
+                <h1 class="profile-name">EndermanHack19</h1>
+                <p class="profile-bio">
+                    Разработчик | Энтузиаст технологий | Создатель инновационных решений<br>
+                    Специализируюсь на веб-разработке, автоматизации и создании уникальных проектов
+                </p>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Проектов</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Года опыта</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Часов кода</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<!-- Профиль -->
-<section id="profile">
-    <h2>👤 Профиль</h2>
-    <p>Привет! Меня зовут <strong>EndermanHack19</strong>. Я занимаюсь веб-разработкой, программированием и созданием интересных проектов. Люблю изучать новые технологии и делиться знаниями с другими.</p>
-</section>
+        <!-- Страница социальных сетей -->
+        <div id="social" class="page">
+            <h2 class="page-title">Социальные сети</h2>
+            <p class="page-subtitle">Найди меня в интернете</p>
+            <div class="social-grid">
+                <div class="social-card" onclick="window.open('https://github.com', '_blank')">
+                    <div class="social-icon">💻</div>
+                    <h3 class="social-name">GitHub</h3>
+                    <p class="social-username">@EndermanHack19</p>
+                </div>
+                <div class="social-card" onclick="window.open('https://discord.com', '_blank')">
+                    <div class="social-icon">💬</div>
+                    <h3 class="social-name">Discord</h3>
+                    <p class="social-username">EndermanHack19#0001</p>
+                </div>
+                <div class="social-card" onclick="window.open('https://telegram.org', '_blank')">
+                    <div class="social-icon">✈️</div>
+                    <h3 class="social-name">Telegram</h3>
+                    <p class="social-username">@EndermanHack19</p>
+                </div>
+                <div class="social-card" onclick="window.open('https://youtube.com', '_blank')">
+                    <div class="social-icon">📺</div>
+                    <h3 class="social-name">YouTube</h3>
+                    <p class="social-username">EndermanHack19</p>
+                </div>
+                <div class="social-card" onclick="window.open('https://twitter.com', '_blank')">
+                    <div class="social-icon">🐦</div>
+                    <h3 class="social-name">Twitter</h3>
+                    <p class="social-username">@EndermanHack19</p>
+                </div>
+                <div class="social-card" onclick="window.open('mailto:endermanhack19@example.com')">
+                    <div class="social-icon">📧</div>
+                    <h3 class="social-name">Email</h3>
+                    <p class="social-username">endermanhack19@example.com</p>
+                </div>
+            </div>
+        </div>
 
-<!-- Социальные сети -->
-<section id="social">
-    <h2>🔗 Ссылки на соц. сети</h2>
-    <ul>
-        <li>🌐 <a href="https://github.com/" target="_blank">GitHub</a></li>
-        <li>📘 <a href="https://vk.com/" target="_blank">ВКонтакте</a></li>
-        <li>📨 <a href="https://t.me/" target="_blank">Telegram</a></li>
-        <li>🎮 <a href="https://discord.com/" target="_blank">Discord</a></li>
-    </ul>
-</section>
+        <!-- Страница проектов -->
+        <div id="projects" class="page">
+            <h2 class="page-title">Мои проекты</h2>
+            <p class="page-subtitle">Исследуй мои последние работы</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🤖</div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI Assistant Bot</h3>
+                        <p class="project-description">
+                            Интеллектуальный бот-помощник с возможностями машинного обучения для автоматизации задач
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI</span>
+                            <span class="tag">TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🌐</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Web Scraper Pro</h3>
+                        <p class="project-description">
+                            Мощный инструмент для сбора и анализа данных с веб-сайтов с графическим интерфейсом
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">React</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🎮</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Minecraft Mod Pack</h3>
+                        <p class="project-description">
+                            Коллекция модификаций для Minecraft с уникальными механиками и блоками
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Java</span>
+                            <span class="tag">Forge</span>
+                            <span class="tag">Gaming</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📱</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Mobile Task Manager</h3>
+                        <p class="project-description">
+                            Кроссплатформенное приложение для управления задачами с синхронизацией в облаке
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Dart</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🔐</div>
+                    <div class="project-content">
+                        <h3 class="project-title">CryptoVault</h3>
+                        <p class="project-description">
+                            Безопасный менеджер паролей с шифрованием военного уровня и двухфакторной аутентификацией
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Cryptography</span>
+                            <span class="tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Data Visualizer</h3>
+                        <p class="project-description">
+                            Инструмент для создания интерактивных визуализаций данных и дашбордов
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">D3.js</span>
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Charts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- Мои проекты -->
-<section id="projects">
-    <h2>🚀 Мои проекты</h2>
-    <ul>
-        <li>📌 <strong><a href="#">Проект 1</a></strong> — краткое описание проекта.</li>
-        <li>📌 <strong><a href="#">Проект 2</a></strong> — краткое описание проекта.</li>
-        <li>📌 <strong><a href="#">Проект 3</a></strong> — краткое описание проекта.</li>
-    </ul>
-</section>
+    <script>
+        // Переключение страниц
+        function showPage(pageName) {
+            // Скрыть все страницы
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Показать выбранную страницу
+            document.getElementById(pageName).classList.add('active');
+            
+            // Обновить активную ссылку в навигации
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Закрыть мобильное меню
+            document.getElementById('navLinks').classList.remove('mobile-active');
+        }
 
-<footer>
-    &copy; 2025 EndermanHack19. Все права защищены.
-</footer>
+        // Переключение мобильного меню
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('mobile-active');
+        }
 
+        // Создание частиц фона
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (20 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        window.onload = function() {
+            createParticles();
+        };
+
+        // Закрытие мобильного меню при клике вне его
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            if (!navLinks.contains(event.target) && !mobileMenu.contains(event.target)) {
+                navLinks.classList.remove('mobile-active');
+            }
+        });
+    </script>
 </body>
 </html>
