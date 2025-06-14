@@ -3,99 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль - EndermanHack19</title>
+    <title>Мой профиль</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        header {
-            background-color: #1f1f1f;
+        
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
-            text-align: center;
         }
-        nav {
-            background-color: #333;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #00bcd4;
-        }
-        section {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #1f1f1f;
-            position: fixed;
+        
+        .profile-card {
+            background: rgba(255, 255, 255, 0.9);
             width: 100%;
-            bottom: 0;
+            max-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: transform 0.3s;
         }
-        a {
-            color: #00bcd4;
+        
+        .profile-card:hover {
+            transform: translateY(-10px);
         }
-        a:hover {
-            text-decoration: underline;
+        
+        .cover {
+            height: 120px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+        }
+        
+        .profile-info {
+            padding: 0 20px 20px;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-top: -60px;
+            object-fit: cover;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        
+        .username {
+            color: #777;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .bio {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+        }
+        
+        .stat {
+            padding: 10px;
+        }
+        
+        .stat h2 {
+            color: #4facfe;
+            margin-bottom: 5px;
+        }
+        
+        .stat p {
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-links {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #4facfe;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: #a777e3;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>👾 Профиль - EndermanHack19</h1>
-</header>
-
-<nav>
-    <a href="#profile">Профиль</a>
-    <a href="#social">Соц. сети</a>
-    <a href="#projects">Мои проекты</a>
-</nav>
-
-<!-- Профиль -->
-<section id="profile">
-    <h2>👤 Профиль</h2>
-    <p>Привет! Меня зовут <strong>EndermanHack19</strong>. Я увлекаюсь программированием, веб-разработкой и созданием интересных проектов. Добро пожаловать на мой личный сайт!</p>
-</section>
-
-<!-- Социальные сети -->
-<section id="social">
-    <h2>🔗 Ссылки на соц. сети</h2>
-    <ul>
-        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
-        <li><a href="https://vk.com/" target="_blank">ВКонтакте</a></li>
-        <li><a href="https://t.me/" target="_blank">Telegram</a></li>
-        <li><a href="https://discord.com/" target="_blank">Discord</a></li>
-    </ul>
-</section>
-
-<!-- Мои проекты -->
-<section id="projects">
-    <h2>🚀 Мои проекты</h2>
-    <ul>
-        <li><strong>Проект 1:</strong> <a href="#">Название проекта 1</a> - краткое описание проекта.</li>
-        <li><strong>Проект 2:</strong> <a href="#">Название проекта 2</a> - краткое описание проекта.</li>
-        <li><strong>Проект 3:</strong> <a href="#">Название проекта 3</a> - краткое описание проекта.</li>
-    </ul>
-</section>
-
-<footer>
-    &copy; 2025 EndermanHack19
-</footer>
-
+    <div class="profile-card">
+        <div class="cover"></div>
+        <div class="profile-info">
+            <img src="https://images-ext-1.discordapp.net/external/fMRrH1ApNQe-LmwRfyiNrgiZuPXZGDEOPbGtg0ZZlyg/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/425583484619456512/2287c0402a0beab49bb7fc548ab0b498.png?format=webp&quality=lossless&width=320&height=320" alt="Profile" class="profile-img">
+            <h1>Алексей Иванов</h1>
+            <p class="username">@aleksey_webdev</p>
+            <p class="bio">Веб-разработчик | UI/UX дизайнер | Люблю создавать красивые и функциональные интерфейсы. Работаю с HTML, CSS, JavaScript и React.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <h2>124</h2>
+                    <p>Проекты</p>
+                </div>
+                <div class="stat">
+                    <h2>5.8K</h2>
+                    <p>Подписчики</p>
+                </div>
+                <div class="stat">
+                    <h2>86</h2>
+                    <p>Подписки</p>
+                </div>
+            </div>
+            
+            <a href="#" class="btn">Написать сообщение</a>
+            <a href="#" class="btn" style="background:linear-gradient(45deg, #a777e3, #6e8efb)">Подписаться</a>
+        </div>
+        
+        <div class="social-links">
+            <a href="#"><i>📱</i></a>
+            <a href="#"><i>📘</i></a>
+            <a href="#"><i>🐦</i></a>
+            <a href="#"><i>📸</i></a>
+            <a href="#"><i>💼</i></a>
+        </div>
+    </div>
 </body>
 </html>
