@@ -11,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             background: #0a0a0a;
@@ -19,7 +18,6 @@
             overflow-x: hidden;
             min-height: 100vh;
         }
-
         /* Анимированный фон */
         body::before {
             content: '';
@@ -33,13 +31,11 @@
             animation: gradientBG 15s ease infinite;
             z-index: -1;
         }
-
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         nav {
             position: fixed;
             top: 0;
@@ -50,7 +46,6 @@
             z-index: 1000;
             transition: all 0.3s ease;
         }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -59,7 +54,6 @@
             align-items: center;
             padding: 0 20px;
         }
-
         .logo {
             font-size: 24px;
             font-weight: bold;
@@ -68,12 +62,10 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .nav-links {
             display: flex;
             gap: 30px;
         }
-
         .nav-links a {
             color: #fff;
             text-decoration: none;
@@ -82,7 +74,6 @@
             position: relative;
             cursor: pointer;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
@@ -93,12 +84,10 @@
             background: linear-gradient(45deg, #00ff88, #00ccff);
             transition: width 0.3s ease;
         }
-
         .nav-links a:hover::after,
         .nav-links a.active::after {
             width: 100%;
         }
-
         /* Мобильное меню */
         .mobile-menu {
             display: none;
@@ -106,46 +95,39 @@
             gap: 5px;
             cursor: pointer;
         }
-
         .mobile-menu span {
             width: 25px;
             height: 3px;
             background: #fff;
             transition: all 0.3s ease;
         }
-
         .container {
             max-width: 1200px;
             margin: 100px auto 0;
             padding: 20px;
         }
-
         .page {
             display: none;
             animation: fadeIn 0.5s ease;
         }
-
         .page.active {
             display: block;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         /* Страница профиля */
         .profile-section {
             text-align: center;
             padding: 50px 0;
         }
-
         .avatar-container {
             position: relative;
             display: inline-block;
             margin-bottom: 30px;
+            cursor: pointer;
         }
-
         .avatar {
             width: 200px;
             height: 200px;
@@ -155,12 +137,10 @@
             position: relative;
             animation: rotate 20s linear infinite;
         }
-
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
         .avatar img {
             width: 100%;
             height: 100%;
@@ -168,7 +148,6 @@
             object-fit: cover;
             background: #222;
         }
-
         .avatar-status {
             position: absolute;
             bottom: 15px;
@@ -182,24 +161,20 @@
             align-items: center;
             justify-content: center;
         }
-
         .avatar-status-indicator {
             width: 30px;
             height: 30px;
             border-radius: 50%;
             background: #747f8d;
         }
-
         .avatar-status-indicator.online {
             background: #3ba55c;
             animation: statusPulse 2s infinite;
         }
-
         .avatar-status-indicator.idle {
             background: #faa61a;
             position: relative;
         }
-
         .avatar-status-indicator.idle::after {
             content: '';
             position: absolute;
@@ -210,12 +185,10 @@
             background: #2f3136;
             border-radius: 50%;
         }
-
         .avatar-status-indicator.dnd {
             background: #ed4245;
             position: relative;
         }
-
         .avatar-status-indicator.dnd::after {
             content: '';
             position: absolute;
@@ -227,11 +200,9 @@
             background: #2f3136;
             border-radius: 2px;
         }
-
         .avatar-status-indicator.streaming {
             background: #593695;
         }
-
         @keyframes statusPulse {
             0% { 
                 box-shadow: 0 0 0 0 rgba(59, 165, 92, 0.7);
@@ -246,7 +217,6 @@
                 transform: scale(1);
             }
         }
-
         .profile-name {
             font-size: 48px;
             margin-bottom: 20px;
@@ -255,7 +225,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .discord-status {
             display: inline-flex;
             align-items: center;
@@ -268,47 +237,38 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-
         .discord-status:hover {
             background: rgba(88, 101, 242, 0.2);
             transform: scale(1.05);
         }
-
         .status-indicator {
             width: 12px;
             height: 12px;
             border-radius: 50%;
             background: #747f8d;
         }
-
         .status-indicator.online {
             background: #3ba55c;
             animation: pulse 2s infinite;
         }
-
         .status-indicator.idle {
             background: #faa61a;
         }
-
         .status-indicator.dnd {
             background: #ed4245;
         }
-
         .status-indicator.streaming {
             background: #593695;
         }
-
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(59, 165, 92, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(59, 165, 92, 0); }
             100% { box-shadow: 0 0 0 0 rgba(59, 165, 92, 0); }
         }
-
         .status-text {
             font-size: 14px;
             color: #b9bbbe;
         }
-
         .profile-bio {
             font-size: 18px;
             color: #ccc;
@@ -316,7 +276,6 @@
             margin: 0 auto;
             line-height: 1.6;
         }
-
         .stats {
             display: flex;
             justify-content: center;
@@ -324,7 +283,6 @@
             margin-top: 50px;
             flex-wrap: wrap;
         }
-
         .stat-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -333,31 +291,26 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
-
         .stat-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
         }
-
         .stat-number {
             font-size: 36px;
             font-weight: bold;
             color: #00ff88;
         }
-
         .stat-label {
             font-size: 14px;
             color: #999;
             margin-top: 5px;
         }
-
         .social-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-
         .social-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -368,35 +321,29 @@
             transition: all 0.3s ease;
             cursor: pointer;
         }
-
         .social-card:hover {
             transform: translateY(-10px) scale(1.05);
             background: rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-
         .social-icon {
             font-size: 48px;
             margin-bottom: 20px;
         }
-
         .social-name {
             font-size: 24px;
             margin-bottom: 10px;
         }
-
         .social-username {
             color: #999;
             font-size: 16px;
         }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-
         .project-card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -405,12 +352,10 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
-
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-
         .project-image {
             width: 100%;
             height: 200px;
@@ -420,28 +365,23 @@
             justify-content: center;
             font-size: 48px;
         }
-
         .project-content {
             padding: 30px;
         }
-
         .project-title {
             font-size: 24px;
             margin-bottom: 15px;
         }
-
         .project-description {
             color: #ccc;
             line-height: 1.6;
             margin-bottom: 20px;
         }
-
         .project-tags {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
-
         .tag {
             background: rgba(0, 255, 136, 0.2);
             color: #00ff88;
@@ -449,7 +389,6 @@
             border-radius: 20px;
             font-size: 14px;
         }
-
         .page-title {
             text-align: center;
             font-size: 42px;
@@ -459,24 +398,20 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .page-subtitle {
             text-align: center;
             color: #ccc;
             font-size: 18px;
             margin-bottom: 50px;
         }
-
         /* Адаптивность */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
-
             .mobile-menu {
                 display: flex;
             }
-
             .nav-links.mobile-active {
                 display: flex;
                 position: absolute;
@@ -488,25 +423,20 @@
                 padding: 20px;
                 gap: 20px;
             }
-
             .profile-name {
                 font-size: 36px;
             }
-
             .stats {
                 gap: 20px;
             }
-
             .stat-card {
                 padding: 20px 30px;
             }
-
             .projects-grid,
             .social-grid {
                 grid-template-columns: 1fr;
             }
         }
-
         /* Частицы фона */
         .particles {
             position: fixed;
@@ -517,7 +447,6 @@
             pointer-events: none;
             z-index: -1;
         }
-
         .particle {
             position: absolute;
             width: 4px;
@@ -526,7 +455,6 @@
             border-radius: 50%;
             animation: float 20s infinite;
         }
-
         @keyframes float {
             0%, 100% {
                 transform: translateY(0) translateX(0);
@@ -543,7 +471,6 @@
                 opacity: 0;
             }
         }
-
         .refresh-status {
             margin-left: 10px;
             background: none;
@@ -553,24 +480,24 @@
             font-size: 16px;
             transition: transform 0.3s ease;
         }
-
         .refresh-status:hover {
             transform: rotate(180deg);
         }
-
         .refresh-status.loading {
             animation: spin 1s linear infinite;
         }
-
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
+        }
+        /* Стили для скрытого аудио */
+        #backgroundMusic {
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="particles" id="particles"></div>
-
     <nav>
         <div class="nav-container">
             <div class="logo">EndermanHack19</div>
@@ -586,11 +513,10 @@
             </div>
         </div>
     </nav>
-
     <div class="container">
         <div id="profile" class="page active">
             <div class="profile-section">
-                <div class="avatar-container">
+                <div class="avatar-container" onclick="toggleMusic()">
                     <div class="avatar">
                         <img src="https://images-ext-1.discordapp.net/external/fMRrH1ApNQe-LmwRfyiNrgiZuPXZGDEOPbGtg0ZZlyg/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/425583484619456512/2287c0402a0beab49bb7fc548ab0b498.png?format=webp&quality=lossless&width=320&height=320" alt="Avatar">
                     </div>
@@ -626,7 +552,6 @@
                 </div>
             </div>
         </div>
-
         <div id="social" class="page">
             <h2 class="page-title">Социальные сети</h2>
             <p class="page-subtitle">Найди меня в интернете</p>
@@ -663,7 +588,6 @@
                 </div>
             </div>
         </div>
-
         <div id="projects" class="page">
             <h2 class="page-title">Мои проекты</h2>
             <p class="page-subtitle">Исследуй мои последние работы</p>
@@ -726,7 +650,12 @@
             </div>
         </div>
     </div>
-
+    
+    <!-- Скрытый аудио элемент для фоновой музыки -->
+    <audio id="backgroundMusic" volume="0.5">
+        <source src="https://pool.anison.fm/AniSonFM(320)?nocache=0.046541482597345696" type="audio/mpeg">
+    </audio>
+    
     <script>
         function showPage(pageName) {
             const pages = document.querySelectorAll('.page');
@@ -740,12 +669,10 @@
             
             document.getElementById('navLinks').classList.remove('mobile-active');
         }
-
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('mobile-active');
         }
-
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 50;
@@ -759,11 +686,9 @@
                 particlesContainer.appendChild(particle);
             }
         }
-
         let ws = null;
         let reconnectInterval = null;
         const userId = '425583484619456512';
-
         function connectWebSocket() {
             try {
                 ws = new WebSocket('wss://api.lanyard.rest/socket');
@@ -777,7 +702,6 @@
                         }
                     }));
                 };
-
                 ws.onmessage = (event) => {
                     const data = JSON.parse(event.data);
                     
@@ -789,11 +713,9 @@
                         updateDiscordStatus(data.d);
                     }
                 };
-
                 ws.onerror = (error) => {
                     console.error('WebSocket ошибка:', error);
                 };
-
                 ws.onclose = () => {
                     console.log('WebSocket отключен');
                     setTimeout(connectWebSocket, 5000);
@@ -803,7 +725,6 @@
                 fetchDiscordStatus();
             }
         }
-
         // Функция обновления статуса Discord
         function updateDiscordStatus(presence) {
             const statusIndicator = document.getElementById('statusIndicator');
@@ -825,7 +746,6 @@
             
             statusText.textContent = statusMap[status] || 'Неизвестно';
         }
-
         async function fetchDiscordStatus() {
             const refreshBtn = document.getElementById('refreshBtn');
             refreshBtn.classList.add('loading');
@@ -867,9 +787,7 @@
                 refreshBtn.classList.remove('loading');
             }
         }
-
         let statusInterval;
-
         function startStatusUpdates() {
             connectWebSocket();
             
@@ -878,7 +796,6 @@
                 statusInterval = setInterval(fetchDiscordStatus, 30000);
             }
         }
-
         function stopStatusUpdates() {
             if (ws) {
                 ws.close();
@@ -889,16 +806,31 @@
                 statusInterval = null;
             }
         }
-
+        
+        // Функция для управления музыкой
+        function toggleMusic() {
+            const music = document.getElementById('backgroundMusic');
+            
+            if (music.paused) {
+                music.play().catch(error => {
+                    console.error('Ошибка воспроизведения музыки:', error);
+                });
+            } else {
+                music.pause();
+            }
+        }
+        
         window.onload = function() {
             createParticles();
             startStatusUpdates();
+            
+            // Установка громкости музыки на 50%
+            const music = document.getElementById('backgroundMusic');
+            music.volume = 0.5;
         };
-
         window.onbeforeunload = function() {
             stopStatusUpdates();
         };
-
         document.addEventListener('click', function(event) {
             const navLinks = document.getElementById('navLinks');
             const mobileMenu = document.querySelector('.mobile-menu');
@@ -907,7 +839,6 @@
                 navLinks.classList.remove('mobile-active');
             }
         });
-
         document.addEventListener('visibilitychange', function() {
             if (document.hidden) {
                 stopStatusUpdates();
